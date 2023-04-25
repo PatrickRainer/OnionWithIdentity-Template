@@ -19,11 +19,12 @@ public sealed class ServiceManager : IServiceManager
     public ServiceManager(IRepositoryManager repositoryManager, UserManager<User> userManager,
         SignInManager<User> signInManager, IConfiguration configuration)
     {
-        //TODO: If possible instantiate these services with lazy
+        // Injections
         UserManager = userManager;
         SignInManager = signInManager;
         Configuration = configuration;
 
+        // Initializations
         _lazyOrganisationService = new Lazy<IOrganisationService>(() => new OrganisationService(repositoryManager));
         _lazyUserService = new Lazy<IUserService>(() =>
             new UserService(repositoryManager, UserManager, SignInManager, Configuration));
