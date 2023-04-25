@@ -61,7 +61,7 @@ public class AccountController : ControllerBase
     [HttpPost("ForgotPassword")]
     public async Task<ActionResult<string>> ForgotPassword(string email, CancellationToken cancellationToken)
     {
-        // TODO: This Method is depending on your UI environment, so it is not implemented here
+        // INFO: This Method is depending on your UI environment, so it is not implemented here
         throw new NotImplementedException();
 
         // Generally you should send an email to the user with a link to reset the password

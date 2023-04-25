@@ -36,7 +36,7 @@ public class Startup
         services.AddControllers()
             .AddApplicationPart(typeof(AssemblyReference).Assembly);
 
-        //TODO: AddNewtonsoftJson should used probably. may be issues with mapster
+        //INFO: AddNewtonsoftJson should used probably. may be issues with mapster, check before you do it
         /*.AddNewtonsoftJson(options =>
         {
             options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
