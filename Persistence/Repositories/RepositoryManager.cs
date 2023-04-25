@@ -5,9 +5,9 @@ namespace Persistence.Repositories;
 
 public sealed class RepositoryManager : IRepositoryManager
 {
-    readonly Lazy<IUserRepository> _lazyUserRepository;
     readonly Lazy<IOrganisationRepository> _lazyOrganisationRepository;
     readonly Lazy<IUnitOfWork> _lazyUnitOfWork;
+    readonly Lazy<IUserRepository> _lazyUserRepository;
 
     public RepositoryManager(RepositoryDbContext dbContext)
     {

@@ -2,27 +2,13 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Contracts;
-using Domain.Entities;
 using Domain.Exceptions;
-using Domain.Repositories;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.Extensions.Configuration;
-using Moq;
 using NUnit.Framework;
-using Persistence;
-using Persistence.Repositories;
-using Services;
-using Services.Abstractions;
 
 namespace Service.Tests;
 
 public class OrganisationTests : ServiceTestBase
 {
-    public OrganisationTests() : base()
-    {
-    }
-
     [Test]
     public async Task CreateOrganisation()
     {

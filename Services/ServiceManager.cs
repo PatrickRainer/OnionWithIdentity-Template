@@ -11,9 +11,9 @@ namespace Services;
 
 public sealed class ServiceManager : IServiceManager
 {
-    readonly Lazy<IUserService> _lazyUserService;
-    readonly Lazy<IOrganisationService> _lazyOrganisationService;
     readonly Lazy<IEmailService> _lazyEmailService;
+    readonly Lazy<IOrganisationService> _lazyOrganisationService;
+    readonly Lazy<IUserService> _lazyUserService;
 
 
     public ServiceManager(IRepositoryManager repositoryManager, UserManager<User> userManager,
@@ -28,7 +28,6 @@ public sealed class ServiceManager : IServiceManager
         _lazyUserService = new Lazy<IUserService>(() =>
             new UserService(repositoryManager, UserManager, SignInManager, Configuration));
         _lazyEmailService = new Lazy<IEmailService>(() => new EmailService());
-        
     }
 
     public IOrganisationService OrganisationService => _lazyOrganisationService.Value;
