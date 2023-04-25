@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Linq;
-using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
 using Contracts;
@@ -13,83 +11,17 @@ using Services.Abstractions;
 namespace Presentation.Controllers;
 
 [ApiController]
-[Route("api/Organisations/users")]
-public class UsersController : ControllerBase
+[Route("api/account")]
+public class AccountController : ControllerBase
 {
     readonly IServiceManager _serviceManager;
     readonly UserManager<User> _userManager;
 
-    public UsersController(IServiceManager serviceManager, UserManager<User> userManager)
+    public AccountController(IServiceManager serviceManager, UserManager<User> userManager)
     {
         _serviceManager = serviceManager;
         _userManager = userManager;
     }
-
-
-    #region Private Methods
-
-    string GetUserIdFromToken()
-    {
-        var claimsIdentity = HttpContext.User.Identity as ClaimsIdentity;
-        if (claimsIdentity != null)
-            return claimsIdentity.Claims.First(claim => claim.Type == "Id").Value;
-        return "";
-    }
-
-    #endregion
-
-    #region Organisation Users
-
-    [HttpGet("GetOrganisationUsers")]
-    [Authorize(Roles = "SuperAdmin, OrgAdmin")]
-    public async Task<IActionResult> GetOrganisationUsers(Guid organisationId, CancellationToken cancellationToken)
-    {
-        var userId = GetUserIdFromToken();
-        var user = await _serviceManager.UserService.GetUser(userId);
-
-        if (user.OrganisationId != organisationId && !User.IsInRole("SuperAdmin"))
-            return Unauthorized();
-
-        var usersDto =
-            await _serviceManager.UserService.GetAllByOrganisationIdAsync(organisationId, cancellationToken);
-
-        return Ok(usersDto);
-    }
-
-    [HttpGet("{organisationId:guid}/{userId}")]
-    [Authorize(Roles = "SuperAdmin, OrgAdmin")]
-    public async Task<IActionResult> GetUserById(Guid organisationId, string userId,
-        CancellationToken cancellationToken)
-    {
-        var user = await _serviceManager.UserService.GetUser(userId);
-
-        if (user.OrganisationId != organisationId && !User.IsInRole("SuperAdmin"))
-            return Unauthorized();
-
-        var userDto =
-            await _serviceManager.UserService.GetByIdAsync(organisationId, userId, cancellationToken);
-
-        return Ok(userDto);
-    }
-
-    [HttpDelete("{organisationId:guid}/{userId}")]
-    [Authorize(Roles = "SuperAdmin, OrgAdmin")]
-    public async Task<IActionResult> DeleteUser(Guid organisationId, string userId,
-        CancellationToken cancellationToken)
-    {
-        var user = await _serviceManager.UserService.GetUser(userId);
-
-        if (user.OrganisationId != organisationId && !User.IsInRole("SuperAdmin"))
-            return Unauthorized();
-
-        await _serviceManager.UserService.DeleteAsync(organisationId, userId, cancellationToken);
-
-        return NoContent();
-    }
-
-    #endregion
-
-    #region Login, Logout, Register, Password Reset
 
     [HttpPost("create")]
     public async Task<IActionResult> CreateUser(Guid organisationId,
@@ -194,8 +126,6 @@ public class UsersController : ControllerBase
             return new OkObjectResult("Success");
         return new BadRequestObjectResult("Error");
     }
-
-    #endregion
 
     #region Endpoints for testing purposes
 
