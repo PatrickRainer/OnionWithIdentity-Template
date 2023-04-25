@@ -159,7 +159,7 @@ public class UsersController : ControllerBase
         // Then redirect to the ResetPasswordConfirmation Page or to the Login Page
     }
 
-    [HttpPost]
+    [HttpPost("SendConfirmationEmail")]
     public async Task<ActionResult> SendConfirmationEmail(string userId)
     {
         throw new NotImplementedException();
