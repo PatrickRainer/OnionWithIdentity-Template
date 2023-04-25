@@ -5,7 +5,7 @@ namespace Domain.Entities;
 
 public class User : IdentityUser
 {
-    //TODO: Can Id also be of type Guid?
+    //User of User Id as type of Guid brings more Issues than it solves
 
 
     public string FirstName { get; set; }
