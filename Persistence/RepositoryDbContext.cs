@@ -14,7 +14,7 @@ public sealed class RepositoryDbContext : IdentityDbContext
 
     public DbSet<Organisation> Organisations { get; set; }
 
-    public DbSet<User> users { get; set; }
+    public DbSet<User> OrgUsers { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
