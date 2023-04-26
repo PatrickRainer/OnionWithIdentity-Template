@@ -11,5 +11,5 @@ public class Organisation
 
     public string Address { get; set; }
 
-    public ICollection<User> users { get; set; }
+    public ICollection<User> Users { get; set; }
 }

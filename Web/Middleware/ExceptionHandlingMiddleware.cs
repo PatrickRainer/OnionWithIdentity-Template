@@ -24,7 +24,8 @@ internal sealed class ExceptionHandlingMiddleware : IMiddleware
         }
         catch (Exception e)
         {
-            _logger.LogError(e, e.Message);
+            var eMessage = e.Message;
+            _logger.LogError(e, "{EMessage}", eMessage);
 
             await HandleExceptionAsync(context, e);
         }

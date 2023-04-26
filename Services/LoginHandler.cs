@@ -45,7 +45,7 @@ internal sealed class LoginHandler
 
         if (!addRoleResult.Succeeded)
         {
-            var deleteResult = await _userManager.DeleteAsync(user);
+            await _userManager.DeleteAsync(user);
             throw new UserCreationFailedException(addRoleResult.Errors);
         }
 

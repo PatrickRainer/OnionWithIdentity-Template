@@ -33,7 +33,7 @@ public class OrganisationTests : ServiceTestBase
             Name = "Test Organisation"
         };
 
-        var organisationDto = await ServiceManager.OrganisationService.CreateAsync(organisationForCreationDto,
+        await ServiceManager.OrganisationService.CreateAsync(organisationForCreationDto,
             CancellationToken.None);
 
         var organisations = await ServiceManager.OrganisationService.GetAllAsync(CancellationToken.None);

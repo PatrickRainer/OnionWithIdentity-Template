@@ -19,7 +19,7 @@ internal sealed class OrganisationConfiguration : IEntityTypeConfiguration<Organ
 
         builder.Property(organisation => organisation.Address).HasMaxLength(100);
 
-        builder.HasMany(organisation => organisation.users)
+        builder.HasMany(organisation => organisation.Users)
             .WithOne()
             .HasForeignKey(user => user.OrganisationId)
             .OnDelete(DeleteBehavior.Cascade);

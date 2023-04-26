@@ -11,5 +11,5 @@ public class OrganisationDto
 
     public string Address { get; set; }
 
-    public IEnumerable<UserDto> users { get; set; }
+    public IEnumerable<UserDto> Users { get; set; }
 }

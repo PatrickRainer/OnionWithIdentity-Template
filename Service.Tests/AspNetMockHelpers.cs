@@ -9,6 +9,10 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Moq;
 
+#pragma warning disable CS8625
+
+// Resharper disable all
+
 namespace Service.Tests;
 
 //https://raw.githubusercontent.com/dotnet/aspnetcore/main/src/Identity/test/Shared/MockHelpers.cs

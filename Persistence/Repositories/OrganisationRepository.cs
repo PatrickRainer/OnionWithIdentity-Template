@@ -19,12 +19,12 @@ internal sealed class OrganisationRepository : IOrganisationRepository
 
     public async Task<IEnumerable<Organisation>> GetAllAsync(CancellationToken cancellationToken = default)
     {
-        return await _dbContext.Organisations.Include(x => x.users).ToListAsync(cancellationToken);
+        return await _dbContext.Organisations.Include(x => x.Users).ToListAsync(cancellationToken);
     }
 
     public async Task<Organisation> GetByIdAsync(Guid organisationId, CancellationToken cancellationToken = default)
     {
-        return await _dbContext.Organisations.Include(x => x.users)
+        return await _dbContext.Organisations.Include(x => x.Users)
             .FirstOrDefaultAsync(x => x.Id == organisationId, cancellationToken);
     }
 

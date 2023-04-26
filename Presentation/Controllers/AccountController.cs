@@ -59,7 +59,7 @@ public class AccountController : ControllerBase
     }
 
     [HttpPost("ForgotPassword")]
-    public async Task<ActionResult<string>> ForgotPassword(string email, CancellationToken cancellationToken)
+    public Task<ActionResult<string>> ForgotPassword(string email, CancellationToken cancellationToken)
     {
         // INFO: This Method is depending on your UI environment, so it is not implemented here
         throw new NotImplementedException();
@@ -77,7 +77,7 @@ public class AccountController : ControllerBase
     }
 
     [HttpPost("ResetPassword")]
-    public async Task<IActionResult> ResetPassword(string email, string code, string password,
+    public Task<IActionResult> ResetPassword(string email, string code, string password,
         CancellationToken cancellationToken)
     {
         throw new NotImplementedException();
