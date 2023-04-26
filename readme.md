@@ -29,6 +29,11 @@ implemented because the focus of this project is to demonstrate the Onion Archit
 3. Open the Package Manager Console and run the following command: `Update-Database`
 4. Run the WEB Project project.
 
+## TODOS if you want to use this project as a template
+* Adjust the Appsettings for your needs
+* Adjust the AccountController according to your UI with the corresponding Callback Urls
+* Probably move the Constants in the Values Class to the Appsettings
+
 ## Projects
 * Contracts: Contains the Dtos and used Models over the whole solution
 * Domain: Contains the Domain Models, Exceptions and IRepositories
