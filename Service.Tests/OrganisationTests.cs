@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Bogus;
 using Contracts;
 using Domain.Exceptions;
 using NUnit.Framework;
@@ -48,7 +49,7 @@ public class OrganisationTests : ServiceTestBase
     {
         var organisationForCreationDto = new OrganisationForCreationDto
         {
-            Name = "Test Organisation"
+            Name = new Faker().Company.CompanyName()
         };
 
         var organisationDto = await ServiceManager.OrganisationService.CreateAsync(organisationForCreationDto,
@@ -67,7 +68,7 @@ public class OrganisationTests : ServiceTestBase
     {
         var organisationForCreationDto = new OrganisationForCreationDto
         {
-            Name = "Test Organisation"
+            Name = new Faker().Company.CompanyName()
         };
 
         var organisationDto = await ServiceManager.OrganisationService.CreateAsync(organisationForCreationDto,
@@ -75,7 +76,7 @@ public class OrganisationTests : ServiceTestBase
 
         var organisationForUpdateDto = new OrganisationForUpdateDto
         {
-            Name = "Updated Organisation"
+            Name = new Faker().Company.CompanyName()
         };
 
         await ServiceManager.OrganisationService.UpdateAsync(organisationDto.Id, organisationForUpdateDto,
@@ -94,7 +95,7 @@ public class OrganisationTests : ServiceTestBase
     {
         var organisationForCreationDto = new OrganisationForCreationDto
         {
-            Name = "Test Organisation"
+            Name = new Faker().Company.CompanyName()
         };
 
         var organisationDto = await ServiceManager.OrganisationService.CreateAsync(organisationForCreationDto,
