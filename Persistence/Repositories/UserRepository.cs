@@ -21,21 +21,21 @@ internal sealed class UserRepository : IUserRepository
     public async Task<IEnumerable<User>> GetAllByOrganisationIdAsync(Guid organisationId,
         CancellationToken cancellationToken = default)
     {
-        return await _dbContext.users.Where(x => x.OrganisationId == organisationId).ToListAsync(cancellationToken);
+        return await _dbContext.OrgUsers.Where(x => x.OrganisationId == organisationId).ToListAsync(cancellationToken);
     }
 
     public async Task<User> GetByIdAsync(string userId, CancellationToken cancellationToken = default)
     {
-        return await _dbContext.users.FirstOrDefaultAsync(x => x.Id == userId, cancellationToken);
+        return await _dbContext.OrgUsers.FirstOrDefaultAsync(x => x.Id == userId, cancellationToken);
     }
 
     public void Insert(User user)
     {
-        _dbContext.users.Add(user);
+        _dbContext.OrgUsers.Add(user);
     }
 
     public void Remove(User user)
     {
-        _dbContext.users.Remove(user);
+        _dbContext.OrgUsers.Remove(user);
     }
 }
