@@ -24,8 +24,13 @@ public class OrgUserController : ControllerBase
 
     string GetUserIdFromToken()
     {
-        if (HttpContext.User.Identity is ClaimsIdentity claimsIdentity)
-            return claimsIdentity.Claims.First(claim => claim.Type == "Id").Value;
+        if (HttpContext.User.Identity is ClaimsIdentity claimsIdentity &&
+            claimsIdentity.Claims.Any(claim => claim.Type == "Id"))
+        {
+            var value = claimsIdentity.Claims.First(claim => claim.Type == "Id").Value;
+            return value;
+        }
+
         return "";
     }
 
