@@ -89,7 +89,7 @@ public static class MockHelpers
         var normalizerFunc = new Func<string, string>(i =>
         {
             if (i == null)
-                return null;
+                return null!;
             return Convert.ToBase64String(Encoding.UTF8.GetBytes(i)).ToUpperInvariant();
         });
         var lookupNormalizer = new Mock<ILookupNormalizer>();
