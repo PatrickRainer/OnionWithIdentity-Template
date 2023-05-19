@@ -1,0 +1,12 @@
+﻿<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Watch Blazor.Server" type="RunDotNetWatch" factoryName="RunDotNetWatch">
+    <option name="exePath" value="$USER_HOME$/.nuget/packages/microsoft.aspnetcore.components.webassembly.devserver/6.0.16/tools/blazor-devserver.dll" />
+    <option name="programParameters" value="" />
+    <option name="projectFilePath" value="$PROJECT_DIR$/Blazor.Server/Blazor.Server.csproj" />
+    <option name="projectTfm" value="net6.0" />
+    <option name="restartOnRudeEditEditor" value="true" />
+    <option name="trackProjectWorkingDirectory" value="false" />
+    <option name="workingDirectory" value="$PROJECT_DIR$/Blazor.Server" />
+    <method v="2" />
+  </configuration>
+</component>
