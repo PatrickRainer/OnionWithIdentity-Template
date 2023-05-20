@@ -1,0 +1,26 @@
+﻿@page "/Register"
+
+<EditForm Model="@model" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator/>
+    <MudGrid Justify="Justify.Center">
+        <MudItem xs="4">
+            <MudCard>
+            <MudCardContent>
+                <MudTextField Label="Email" HelperText="Will be your Username"
+                              @bind-Value="model.Email" For="@(() => model.Email)"/>
+                <MudTextField Label="First Name" Class="mt-3"
+                              @bind-Value="model.FirstName" For="@(() => model.FirstName)"/>
+                <MudTextField Label="Last Name" Class="mt-3"
+                              @bind-Value="model.LastName" For="@(() => model.LastName)"/>
+                <MudTextField Label="Password" HelperText="Choose a strong password" Class="mt-3"
+                              @bind-Value="model.Password" For="@(() => model.Password)" InputType="InputType.Password"/>
+                <MudTextField Label="Password confirmation" HelperText="Repeat the password" Class="mt-3"
+                              @bind-Value="model.ConfirmPassword" For="@(() => model.ConfirmPassword)" InputType="InputType.Password"/>
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Register</MudButton>
+            </MudCardActions>
+        </MudCard>
+         </MudItem>
+    </MudGrid>
+</EditForm>
