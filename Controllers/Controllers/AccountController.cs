@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Services.Abstractions;
 
-namespace Presentation.Controllers;
+namespace Controllers.Controllers;
 
 [ApiController]
 [Route("api/account")]

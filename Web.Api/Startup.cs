@@ -1,5 +1,6 @@
 using System;
 using System.Text;
+using Controllers;
 using Domain.Entities;
 using Domain.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -15,9 +16,9 @@ using Microsoft.OpenApi.Models;
 using Persistence;
 using Persistence.Repositories;
 using Presentation;
+using Presentation.Shared.DbInitializing;
 using Services;
 using Services.Abstractions;
-using Web.DbInitializing;
 using Web.Middleware;
 
 namespace Web;

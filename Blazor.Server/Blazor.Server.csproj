@@ -11,6 +11,14 @@
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.16" PrivateAssets="all" />
 		<PackageReference Include="MudBlazor" Version="6.2.5" />
 	</ItemGroup>
-	
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Contracts\Contracts.csproj" />
+	</ItemGroup>
+
+	<!-- Is used to get CSS intelli Sense while developing -->
+	<Target Name="CollectMudBlazorStaticAssets" DependsOnTargets="ResolveStaticWebAssetsInputs" AfterTargets="Build" Condition=" '$(Configuration)' == 'Debug' ">
+		<Copy SourceFiles="%(StaticWebAsset.Identity)" DestinationFolder="wwwroot/temp/css" Condition="$([System.String]::Copy(%(StaticWebAsset.Identity)).Contains('mudblazor'))" />
+	</Target>
 	
 </Project>

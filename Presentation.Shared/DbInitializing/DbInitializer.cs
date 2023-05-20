@@ -2,7 +2,7 @@
 using Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 
-namespace Web.DbInitializing;
+namespace Presentation.Shared.DbInitializing;
 
 public class DbInitializer
 {

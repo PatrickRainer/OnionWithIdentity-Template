@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services.Abstractions;
 
-namespace Presentation.Controllers;
+namespace Controllers.Controllers;
 
 [ApiController]
 [Route("api/Organisations/Users")]
